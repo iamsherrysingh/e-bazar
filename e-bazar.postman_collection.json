@@ -86,10 +86,10 @@
 				{
 					"name": "Update Price By Id",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}:{{catalogPort}}/updatePrice?id=1&newPrice=189.7",
+							"raw": "{{hostname}}:{{catalogPort}}/updatePrice?id=1&newPrice=54.2",
 							"host": [
 								"{{hostname}}"
 							],
@@ -104,7 +104,7 @@
 								},
 								{
 									"key": "newPrice",
-									"value": "189.7"
+									"value": "54.2"
 								}
 							]
 						}

@@ -49,7 +49,7 @@ public class CatalogController {
         productService.deleteProduct(id);
     }
 
-    @PostMapping("/updatePrice")
+    @PutMapping("/updatePrice")
     public void updateProduct(@RequestParam("id") Integer id, @RequestParam("newPrice") Double newPrice) {
         productService.updatePrice(id, newPrice);
     }
