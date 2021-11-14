@@ -9,15 +9,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="catalog" />
         <module name="gateway" />
+        <module name="accounts" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="accounts" target="17" />
       <module name="catalog" target="17" />
       <module name="gateway" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accounts" options="-parameters" />
       <module name="catalog" options="-parameters" />
       <module name="gateway" options="-parameters" />
     </option>
