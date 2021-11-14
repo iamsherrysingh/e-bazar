@@ -14,13 +14,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}:{{catalogPort}}/",
+							"raw": "{{hostname}}:{{catalogPort}}/catalog",
 							"host": [
 								"{{hostname}}"
 							],
 							"port": "{{catalogPort}}",
 							"path": [
-								""
+								"catalog"
 							]
 						}
 					},
@@ -32,12 +32,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}:{{catalogPort}}/1",
+							"raw": "{{hostname}}:{{catalogPort}}/catalog/1",
 							"host": [
 								"{{hostname}}"
 							],
 							"port": "{{catalogPort}}",
 							"path": [
+								"catalog",
 								"1"
 							]
 						}
@@ -59,12 +60,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{hostname}}:{{catalogPort}}/add",
+							"raw": "{{hostname}}:{{catalogPort}}/catalog/add",
 							"host": [
 								"{{hostname}}"
 							],
 							"port": "{{catalogPort}}",
 							"path": [
+								"catalog",
 								"add"
 							],
 							"query": [
@@ -89,12 +91,13 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{hostname}}:{{catalogPort}}/updatePrice?id=1&newPrice=54.2",
+							"raw": "{{hostname}}:{{catalogPort}}/catalog/updatePrice?id=1&newPrice=54.2",
 							"host": [
 								"{{hostname}}"
 							],
 							"port": "{{catalogPort}}",
 							"path": [
+								"catalog",
 								"updatePrice"
 							],
 							"query": [
@@ -122,11 +125,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080",
+							"raw": "{{hostname}}:{{gatewayPort}}/accounts/customers",
 							"host": [
-								"localhost"
+								"{{hostname}}"
 							],
-							"port": "8080"
+							"port": "{{gatewayPort}}",
+							"path": [
+								"accounts",
+								"customers"
+							]
 						}
 					},
 					"response": []
@@ -142,11 +149,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/accounts/customers",
+							"raw": "{{hostname}}:{{accountsPort}}/accounts/customers",
 							"host": [
-								"localhost"
+								"{{hostname}}"
 							],
-							"port": "5000",
+							"port": "{{accountsPort}}",
 							"path": [
 								"accounts",
 								"customers"
@@ -185,7 +192,15 @@
 		},
 		{
 			"key": "catalogPort",
-			"value": "8085"
+			"value": "8081"
+		},
+		{
+			"key": "accountsPort",
+			"value": "8082"
+		},
+		{
+			"key": "gatewayPort",
+			"value": "8080"
 		}
 	]
 }

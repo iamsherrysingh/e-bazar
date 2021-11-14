@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {""})
+@RequestMapping(value = {"catalog"})
 public class CatalogController {
 
     //private final StorageService storageService;
