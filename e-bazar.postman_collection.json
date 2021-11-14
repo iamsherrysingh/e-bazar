@@ -112,6 +112,50 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080",
+							"host": [
+								"localhost"
+							],
+							"port": "8080"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get all Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/accounts/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"accounts",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
