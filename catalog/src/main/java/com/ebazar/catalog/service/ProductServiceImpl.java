@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,11 +30,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer id) {
         Optional<Product> product = productRepo.findById(id);
-        if (product.isPresent()) {
-            return product.get();
-        } else {
-            return new Product();
-        }
+        if (!product.isPresent())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        return product.get();
     }
 
     //Using the allEntries attribute to evict all entries from the cache.
