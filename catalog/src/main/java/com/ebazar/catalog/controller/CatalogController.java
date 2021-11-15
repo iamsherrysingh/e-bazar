@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -37,12 +38,11 @@ public class CatalogController {
      * Usage: localhost:8081/product/1
      */
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Integer id) {
-        try {
-            return productService.getProductById(id);
-        }catch (ResponseStatusException rse){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, rse.getMessage());
-        }
+    public Product getProductById(@PathVariable Integer id) throws ResponseStatusException {
+        Product product = productService.getProductById(id);
+        if(product == null)
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Prod not found");
+        return product;
     }
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -30,9 +30,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer id) {
         Optional<Product> product = productRepo.findById(id);
-        if (!product.isPresent())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
-        return product.get();
+        return product.isPresent() ? product.get() : null;
     }
 
     //Using the allEntries attribute to evict all entries from the cache.
